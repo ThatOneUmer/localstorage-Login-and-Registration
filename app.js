@@ -13,6 +13,7 @@ var userGender = document.getElementsByName("gender");
 var userCity = document.getElementById("userCity");
 var emError = document.getElementsByClassName("emailError")[0];
 var heaDing = document.getElementById("heading");
+var errorr = document.getElementsByClassName("er-2")[0];
 
 function getUserData() {
   return JSON.parse(localStorage.getItem("Users"));
@@ -66,10 +67,10 @@ function usergenderChecker() {
 }
 
 function userCitychecker() {
-  if (userCity.selectedIndex === 0) {
-    alert("Please Select City");
+  if (userCity.selectedIndex !== 0) {
+    return userCity.value;
   }
-  return userCity.value;
+  
 }
 
 function submitData(e) {
@@ -80,6 +81,11 @@ function submitData(e) {
       emError.innerText = "Email already exist";
       return;
     }
+  }
+  if (userCity.selectedIndex === 0) {
+    errorr.style.display = "block";
+    errorr.innerText = "Please select your city";
+    return;
   }
   emError.style.display = "none";
 

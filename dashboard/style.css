@@ -46,6 +46,7 @@ h1{
 
 .col{
     color: #1999ff;
+    text-transform: capitalize;
 }
 
 .btn{
