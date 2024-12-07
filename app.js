@@ -23,8 +23,12 @@ function setUsersData(udata) {
   localStorage.setItem("Users", JSON.stringify(udata));
 }
 
+function setLoginData(ldata) {
+  localStorage.setItem("login", JSON.stringify(ldata));
+}
+
 var userRegData = getUserData() ? [...getUserData()] : [];
-console.log(userRegData);
+var loginUsers = getUserData() ? [] : [];
 
 // Validations start
 function unValid(uname) {
@@ -70,7 +74,6 @@ function userCitychecker() {
   if (userCity.selectedIndex !== 0) {
     return userCity.value;
   }
-  
 }
 
 function submitData(e) {
@@ -101,6 +104,19 @@ function submitData(e) {
       usercity: userCitychecker(),
     },
   ];
+
+  loginUsers = [
+    {
+      firstName: userFirstname.value,
+      lastName: userLastname.value,
+      username: userName.value,
+      useremail: userEmail.value,
+      password: userPassword.value,
+      usergender: usergenderChecker(),
+      usercity: userCitychecker(),
+    },
+  ];
   setUsersData(userRegData);
-  window.location.replace("./login/login.html");
+  setLoginData(loginUsers);
+  window.location.replace("./dashboard/dashboard.html");
 }

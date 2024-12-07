@@ -3,19 +3,27 @@ if (!loginUsers) {
   window.location.replace("../login/login.html");
 }
 
-console.log(typeof(loginUsers))
-
 var Fname = document.getElementById("userFname");
-Fname.innerText = loginUsers.firstName;
-
 var fullName = document.getElementById("ufname");
-fullName.innerText = loginUsers.firstName + " " + loginUsers.lastName;
 var userMail = document.getElementById("uename");
-userMail.innerText = loginUsers.useremail;
 var userCity = document.getElementById("ucname");
-userCity.innerText = loginUsers.usercity;
 var userGender = document.getElementById("ugname");
+Fname.innerText = loginUsers.firstName;
+fullName.innerText = loginUsers.firstName + " " + loginUsers.lastName;
+userMail.innerText = loginUsers.useremail;
+userCity.innerText = loginUsers.usercity;
 userGender.innerText = loginUsers.usergender;
+
+function auTo() {
+  for (let i = 0; i < loginUsers.length; i++) {
+    Fname.innerText = loginUsers[i].firstName;
+    fullName.innerText = loginUsers[i].firstName + " " + loginUsers[i].lastName;
+    userMail.innerText = loginUsers[i].useremail;
+    userCity.innerText = loginUsers[i].usercity;
+    userGender.innerText = loginUsers[i].usergender;
+  }
+}
+auTo();
 
 function logOut() {
   localStorage.removeItem("login");
