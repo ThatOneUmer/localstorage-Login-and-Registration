@@ -49,6 +49,10 @@ h1{
     text-transform: capitalize;
 }
 
+.tn{
+    text-transform: lowercase !important;
+}
+
 .btn{
     color: white;
     background-color: #1999ff;
